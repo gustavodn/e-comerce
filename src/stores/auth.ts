@@ -58,7 +58,7 @@ export const useAuthStore = defineStore('auth', {
       this.error = null;
       
       try {
-        const response = await api.post('/register', data);
+        await api.post('/register', data);
         return true;
       } catch (error: any) {
         this.error = error.response?.data?.message || 'Registration failed';

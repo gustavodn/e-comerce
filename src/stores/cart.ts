@@ -8,6 +8,7 @@ interface CartItem {
   product: {
     name: string;
     price: number;
+    image_url: string;
     // Add other product properties as needed
   };
 }

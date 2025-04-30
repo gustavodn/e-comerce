@@ -83,16 +83,16 @@ const password = ref('');
 const passwordConfirmation = ref('');
 
 const handleRegister = async () => {
-  const { valid } = await form.value?.validate();
+  const validationResult = await form.value?.validate();
   
-  if (!valid) return;
+  if (!validationResult?.valid) return;
 
   try {
     const success = await authStore.register({
       name: name.value,
       email: email.value,
       password: password.value,
-      c_password: passwordConfirmation.value
+      password_confirmation: passwordConfirmation.value
     });
 
     if (success) {

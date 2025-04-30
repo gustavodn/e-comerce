@@ -102,7 +102,7 @@
           <v-col cols="12">
             <v-pagination
               v-model="currentPage"
-              :length="productsStore.totalPages"
+              :length="Math.ceil(productsStore.total / itemsPerPage)"
               :total-visible="5"
               color="primary"
               @input="fetchProducts"
@@ -134,9 +134,24 @@ const {
 const { fetchCategories, fetchBrands, fetchColors } = useFilterOptions();
 const loadingFilters = ref(false);
 
-const categories = ref([]);
-const brands = ref([]);
-const colors = ref([]);
+interface Category {
+  uuid: string;
+  name: string;
+}
+
+interface Brand {
+  uuid: string;
+  name: string;
+}
+
+interface Color {
+  uuid: string;
+  name: string;
+}
+
+const categories = ref<Category[]>([]);
+const brands = ref<Brand[]>([]);
+const colors = ref<Color[]>([]);
 
 const currentPage = ref(1);
 const itemsPerPage = 12; // Adjust as needed
@@ -144,9 +159,11 @@ const itemsPerPage = 12; // Adjust as needed
 const fetchProducts = async () => {
   productsStore.loading = true;
   try {
-    await productsStore.fetchProducts({
-      page: currentPage.value,
-      limit: itemsPerPage,
+    await productsStore.fetchProducts(currentPage.value, itemsPerPage, {
+      search: searchQuery.value,
+      category: selectedCategory.value,
+      brand: selectedBrand.value,
+      color: selectedColor.value
     });
   } catch (error) {
     console.error('Error fetching products:', error);

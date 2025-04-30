@@ -101,9 +101,10 @@ const cartStore = useCartStore();
 const router = useRouter();
 
 const cartItems = computed(() => cartStore.items);
+
 const totalPrice = computed(() => {
   return cartItems.value.reduce((total, item) => {
-    return item.product.price;
+    return total + (item.product.price * item.quantity);
   }, 0);
 });
 

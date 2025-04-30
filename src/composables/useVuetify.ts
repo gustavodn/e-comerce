@@ -1,7 +1,6 @@
 import { getCurrentInstance } from 'vue';
-import type { Vuetify } from 'vuetify';
 
-export const useVuetify = (): Vuetify | null => {
+export const useVuetify = (): any => {
   const instance = getCurrentInstance();
   return instance?.appContext.config.globalProperties.$vuetify || null;
 }; 

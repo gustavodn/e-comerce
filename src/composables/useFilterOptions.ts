@@ -1,5 +1,3 @@
-import { ref } from 'vue';
-
 export function useFilterOptions() {
   const fetchCategories = async () => {
     // Simulate fetching categories from an API

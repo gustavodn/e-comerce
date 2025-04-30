@@ -51,7 +51,8 @@ describe('Cart Store', () => {
         quantity: 2,
         product: {
           name: 'Test Product',
-          price: 10
+          price: 10,
+          image_url: 'https://example.com/image1.jpg'
         }
       }
     ]
@@ -108,7 +109,8 @@ describe('Cart Store', () => {
         quantity: 2,
         product: {
           name: 'Test Product 1',
-          price: 10
+          price: 10,
+          image_url: 'https://example.com/image1.jpg'
         }
       },
       {
@@ -117,7 +119,8 @@ describe('Cart Store', () => {
         quantity: 3,
         product: {
           name: 'Test Product 2',
-          price: 20
+          price: 20,
+          image_url: 'https://example.com/image2.jpg'
         }
       }
     ]

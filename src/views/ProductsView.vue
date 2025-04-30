@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useProductsStore } from '@/stores/products';
 import { useCartStore } from '@/stores/cart';
 import { debounce } from 'lodash-es';
