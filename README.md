@@ -76,14 +76,6 @@ The application integrates with the following API endpoints:
 4. Write unit tests for critical components
 5. Use ESLint and Prettier for code formatting
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
 ## License
 
 MIT
